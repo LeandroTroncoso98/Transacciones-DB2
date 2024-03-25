@@ -11,4 +11,4 @@ Una vez validada, la transacción será registrada en la base de datos para su p
 ![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/34994130-8372-40bc-b43f-4210aa69aaff)
 
                                         Diagrama de flujo:
-![DFDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/e3716d13-9528-4136-86f9-2e95e79fb87f)
+![DFDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/2f1a6a26-368e-40c4-9acf-d50f577fe3bb)
