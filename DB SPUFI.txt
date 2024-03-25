@@ -1,0 +1,78 @@
+-- *********************************************************************
+-- TABLA DE CATEGORIAS                                                 *
+-- *********************************************************************
+DROP TABLE TRX.CLIENTE_CATEGORIA;                                       
+DROP TABLE TRX.CLIENTE;                                                 
+                                                                        
+CREATE TABLE TRX.CLIENTE_CATEGORIA(                                     
+       CLAVE_CATEGORIA     CHAR(1)     NOT NULL,                        
+       DESCRIPCION         VARCHAR(50) NOT NULL,                        
+       PRIMARY KEY(CLAVE_CATEGORIA));                                   
+COMMIT;                                                                 
+                                                                        
+--INDICE CATEGORIA:                                                     
+CREATE UNIQUE INDEX CATEGORIA_I ON TRX.CLIENTE_CATEGORIA                
+       (CLAVE_CATEGORIA) CLUSTER;                                       
+COMMIT;                                                                 
+                                                                        
+-- *********************************************************************
+-- TABLA DE CLIENTES                                                   *
+-- *********************************************************************
+CREATE TABLE TRX.CLIENTE(                                               
+       CBU_CLIENTE      VARCHAR(22)   NOT NULL,                         
+       NOMBRE           VARCHAR(50) NOT NULL,                           
+       DIRECCION        VARCHAR(40) NOT NULL,                           
+       TELEFONO         VARCHAR(10) NOT NULL,                           
+       SALDO            DECIMAL(13,2) NOT NULL                          
+                               WITH DEFAULT 0,                          
+      CATEGORIA           CHAR(01) NOT NULL,                            
+       PRIMARY KEY (CBU_CLIENTE),                                       
+       FOREIGN KEY(CATEGORIA)                                           
+          REFERENCES TRX.CLIENTE_CATEGORIA (CLAVE_CATEGORIA));          
+                                                                        
+COMMIT;                                                                 
+--INDICE CLIENTE:                                                       
+CREATE UNIQUE INDEX CLIENTE_I ON TRX.CLIENTE(CBU_CLIENTE)               
+       CLUSTER;                                                         
+COMMIT;                                                                 
+-- *********************************************************************
+-- TABLA DE TRANSACCIONES                                              *
+-- *********************************************************************
+CREATE TABLE TRX.TRANSACCION(                                           
+       CLAVE_TRX       VARCHAR(12)  NOT NULL,                           
+       DIA_HORA        TIMESTAMP   NOT NULL WITH DEFAULT                
+                       '2024-01-01-00.00.00.000000',                    
+       MONTO           DECIMAL(13,2) NOT NULL WITH DEFAULT 0,           
+       COMISION        DECIMAL(8,2) NOT NULL WITH DEFAULT 0,            
+       CBU_EMISOR      VARCHAR(22) NOT NULL,                            
+       CBU_RECEPTOR    VARCHAR(22) NOT NULL,                            
+       PRIMARY KEY(CLAVE_TRX),                                          
+       FOREIGN KEY(CBU_EMISOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE),     
+       FOREIGN KEY(CBU_RECEPTOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE));  
+COMMIT;                                                                 
+                                                                        
+-- *********************************************************************
+-- CARGAR DATOS CATEGORIA                                              *
+-- *********************************************************************
+INSERT INTO TRX.CLIENTE_CATEGORIA(CLAVE_CATEGORIA, DESCRIPCION)         
+       VALUES('C','COMUN');                                             
+INSERT INTO TRX.CLIENTE_CATEGORIA(CLAVE_CATEGORIA, DESCRIPCION)         
+       VALUES('P','PLATINO');                                           
+                                                                        
+-- *********************************************************************
+-- CARGAR DATOS CLIENTES                                               *
+-- *********************************************************************
+INSERT INTO TRX.CLIENTE(CBU_CLIENTE,NOMBRE,DIRECCION,TELEFONO,          
+                        SALDO,CATEGORIA)                                
+       VALUES('0095246000998769875244','JUAN MARCELO TORRES',           
+             'AV. PRINCIPAL 123','1187986352',7533.56,'C');             
+-- ****  ****  ****  ****  ****  ****  ****  ****  ****  ****  ****  ***
+INSERT INTO TRX.CLIENTE(CBU_CLIENTE,NOMBRE,DIRECCION,TELEFONO,          
+                        SALDO,CATEGORIA)                                
+       VALUES('0000789657995219698546','MARIA INES TOLEDO',             
+             'AV. LIBERTADOR 883','1189875623',965.10,'P');             
+-- ****  ****  ****  ****  ****  ****  ****  ****  ****  ****  ****  ***
+INSERT INTO TRX.CLIENTE(CBU_CLIENTE,NOMBRE,DIRECCION,TELEFONO,
+                        SALDO,CATEGORIA)                      
+       VALUES('0078879526549875416549','ROBERTO LOPEZ',       
+             'CALLE 4 N. 302','1198753212',233.05,'C');       
