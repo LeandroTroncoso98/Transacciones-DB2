@@ -7,4 +7,4 @@ Además de la validación de los CBUs, el programa deberá considerar la categor
 Una vez validada, la transacción será registrada en la base de datos para su posterior seguimiento y procesamiento.
 
                                         Diagrama entidad relacion:
-![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/504b0cde-e228-45a9-b8ec-432d7e548f7b)
+![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/1f3e9f61-d987-4e15-96dc-3d05fb0ba713)
