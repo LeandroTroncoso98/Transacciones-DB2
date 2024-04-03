@@ -1,0 +1,43 @@
+      ******************************************************************
+      * DCLGEN TABLE(TRX.CLIENTE)                                      *
+      *        LIBRARY(IBMUSER.CURSO.DB2.DCLGEN(TRXCLI))               *
+      *        LANGUAGE(COBOL)                                         *
+      *        QUOTE                                                   *
+      *        INDVAR(YES)                                             *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TRX.CLIENTE TABLE                           
+           ( CBU_CLIENTE                    VARCHAR(22) NOT NULL,       
+             NOMBRE                         VARCHAR(50) NOT NULL,       
+             DIRECCION                      VARCHAR(40) NOT NULL,       
+             TELEFONO                       VARCHAR(10) NOT NULL,       
+             SALDO                          DECIMAL(13, 2) NOT NULL,    
+             CATEGORIA                      CHAR(1) NOT NULL            
+           ) END-EXEC.                                                  
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TRX.CLIENTE                        *
+      ******************************************************************
+       01  DCLCLIENTE.                                                  
+           10 CBU-CLIENTE.                                              
+              49 CBU-CLIENTE-LEN   PIC S9(4) USAGE COMP.                
+              49 CBU-CLIENTE-TEXT                                       
+                 PIC X(22).                                             
+           10 NOMBRE.                                                   
+              49 NOMBRE-LEN        PIC S9(4) USAGE COMP.                
+              49 NOMBRE-TEXT       PIC X(50).                           
+           10 DIRECCION.                                                
+              49 DIRECCION-LEN     PIC S9(4) USAGE COMP.                
+              49 DIRECCION-TEXT    PIC X(40).                           
+           10 TELEFONO.                                                 
+              49 TELEFONO-LEN      PIC S9(4) USAGE COMP.                
+              49 TELEFONO-TEXT     PIC X(10).                           
+           10 SALDO                PIC S9(11)V9(2) USAGE COMP-3.        
+           10 CATEGORIA            PIC X(1).                            
+      ******************************************************************
+      * INDICATOR VARIABLE STRUCTURE                                   *
+      ******************************************************************.
+       01  ICLIENTE.                                                    
+           10 INDSTRUC           PIC S9(4) USAGE COMP OCCURS 6 TIMES.   
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 6       *
+      ******************************************************************

@@ -1,0 +1,42 @@
+      ******************************************************************
+      * DCLGEN TABLE(TRX.TRANSACCION)                                  *
+      *        LIBRARY(IBMUSER.CURSO.DB2.DCLGEN(TRXTRX))               *
+      *        LANGUAGE(COBOL)                                         *
+      *        QUOTE                                                   *
+      *        INDVAR(YES)                                             *
+      * ... IS THE DCLGEN COMMAND THAT MADE THE FOLLOWING STATEMENTS   *
+      ******************************************************************
+           EXEC SQL DECLARE TRX.TRANSACCION TABLE                       
+           ( ID_TRX                         INTEGER NOT NULL,           
+             DIA_HORA                       TIMESTAMP NOT NULL,         
+             MONTO                          DECIMAL(13, 2) NOT NULL,    
+             COMISION                       DECIMAL(8, 2) NOT NULL,     
+             MONTO_TOTAL                    DECIMAL(13, 2) NOT NULL,    
+             CBU_EMISOR                     VARCHAR(22) NOT NULL,       
+             CBU_RECEPTOR                   VARCHAR(22) NOT NULL        
+           ) END-EXEC.                                                  
+      ******************************************************************
+      * COBOL DECLARATION FOR TABLE TRX.TRANSACCION                    *
+      ******************************************************************
+       01  DCLTRANSACCION.                                              
+           10 ID-TRX               PIC S9(9) USAGE COMP.                
+           10 DIA-HORA             PIC X(26).                           
+           10 MONTO                PIC S9(11)V9(2) USAGE COMP-3.        
+           10 COMISION             PIC S9(6)V9(2) USAGE COMP-3.         
+           10 MONTO-TOTAL          PIC S9(11)V9(2) USAGE COMP-3.        
+           10 CBU-EMISOR.                                               
+              49 CBU-EMISOR-LEN    PIC S9(4) USAGE COMP.                
+              49 CBU-EMISOR-TEXT   PIC X(22).                           
+           10 CBU-RECEPTOR.                                             
+              49 CBU-RECEPTOR-LEN                                       
+                 PIC S9(4) USAGE COMP.                                  
+              49 CBU-RECEPTOR-TEXT                                      
+                 PIC X(22).                                             
+      ******************************************************************
+      * INDICATOR VARIABLE STRUCTURE                                   *
+      ******************************************************************
+       01  ITRANSACCION.                                                
+           10 INDSTRUC           PIC S9(4) USAGE COMP OCCURS 7 TIMES.   
+      ******************************************************************
+      * THE NUMBER OF COLUMNS DESCRIBED BY THIS DECLARATION IS 7       *
+      ******************************************************************
