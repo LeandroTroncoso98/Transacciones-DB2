@@ -11,7 +11,7 @@ El archivo secuencial de entrada estara estructurado de la siguiente manera: Hor
 Por ejemplo: <br />
 2024-01-31-12.00.00.00000100000000003561200952460009987698752440078879526549875416549 <br />
 
-    Proceso:
+    Final del proceso:
 Una vez que se realice todo el proceso de verificacion y grabacion en el programa las transacciones invalidas por algun motivo seran registradas en un archivo secuencial de reportes de error.
 Teniendo el formato: CBU emisor, CBU receptor, causa del error.<br />
 ![image](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/8d5795eb-df9a-4564-9217-c28941c900fd)
@@ -19,7 +19,7 @@ Teniendo el formato: CBU emisor, CBU receptor, causa del error.<br />
 ![image](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/16756c64-6ecb-40b5-8943-2b8e3506d875)
 
     Diagrama entidad relacion:
-![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/34994130-8372-40bc-b43f-4210aa69aaff)
+![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/b3efb5be-0c15-4b6e-88d3-ea4ce691d5e8)
 
     Diagrama de flujo:
 ![DFDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/2f1a6a26-368e-40c4-9acf-d50f577fe3bb)
