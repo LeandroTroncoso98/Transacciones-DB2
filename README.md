@@ -7,9 +7,9 @@ Además de la validación de los CBUs, el programa deberá considerar la categor
 Una vez validada, la transacción será registrada en la base de datos para su posterior seguimiento y procesamiento.
     
     Archivo de entrada:
-El archivo secuencial de entrada estara estructurado de la siguiente manera: Hora en la que se realizo la transaccion, monto de la transaccion, CBU del cliente emisor, CBU del cliente receptor.
+El archivo secuencial de entrada estara estructurado de la siguiente manera: Hora en la que se realizo la transaccion, monto de la transaccion, CBU del cliente emisor, CBU del cliente receptor. <br />
+Por ejemplo: <br />
 2024-01-31-12.00.00.00000100000000003561200952460009987698752440078879526549875416549 <br />
-|---- FECHA -------------||----MONTO ---||----CBU EMI --------||--CBU RECEP --------|
 
     Proceso:
 Una vez que se realice todo el proceso de verificacion y grabacion en el programa las transacciones invalidas por algun motivo seran registradas en un archivo secuencial de reportes de error.
