@@ -49,7 +49,28 @@ CREATE TABLE TRX.TRANSACCION(
        PRIMARY KEY(CLAVE_TRX),                                          
        FOREIGN KEY(CBU_EMISOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE),     
        FOREIGN KEY(CBU_RECEPTOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE));  
+COMMIT;                                                   
+-- *********************************************************************
+-- TABLA DE BANCOS                                                     *
+-- *********************************************************************
+CREATE TABLE TRX.BANCO(                                                 
+       ID_BANCO        INTEGER NOT NULL,                                
+       DESCRIPCION     VARCHAR(50) NOT NULL,                            
+       PRIMARY KEY(ID_BANCO));                                          
 COMMIT;                                                                 
+CREATE UNIQUE INDEX BCO_I ON TRX.BANCO(ID_BANCO)                        
+       CLUSTER;                                                         
+COMMIT;                                                                 
+                                                                        
+-- *********************************************************************
+-- CARGAR DATOS BANCO                                                  *
+-- *********************************************************************
+INSERT INTO TRX.BANCO(ID_BANCO,DESCRIPCION)                             
+       VALUES(007,'BANCO DE GALICIA Y BUENOS AIRES');                   
+INSERT INTO TRX.BANCO(ID_BANCO, DESCRIPCION)                            
+       VALUES(011,'BANCO DE LA NACION ARGENTINA');                      
+INSERT INTO TRX.BANCO(ID_BANCO, DESCRIPCION)                            
+       VALUES(285,'BANCO MACRO S.A.');                                  
                                                                         
 -- *********************************************************************
 -- CARGAR DATOS CATEGORIA                                              *
