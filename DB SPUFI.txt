@@ -39,17 +39,23 @@ COMMIT;
 -- TABLA DE TRANSACCIONES                                              *
 -- *********************************************************************
 CREATE TABLE TRX.TRANSACCION(                                           
-       CLAVE_TRX       VARCHAR(12)  NOT NULL,                           
+       ID_TRX          INTEGER NOT NULL,                                
        DIA_HORA        TIMESTAMP   NOT NULL WITH DEFAULT                
                        '2024-01-01-00.00.00.000000',                    
        MONTO           DECIMAL(13,2) NOT NULL WITH DEFAULT 0,           
        COMISION        DECIMAL(8,2) NOT NULL WITH DEFAULT 0,            
+       MONTO_TOTAL     DECIMAL(13,2) NOT NULL WITH DEFAULT 0,           
        CBU_EMISOR      VARCHAR(22) NOT NULL,                            
        CBU_RECEPTOR    VARCHAR(22) NOT NULL,                            
-       PRIMARY KEY(CLAVE_TRX),                                          
+       PRIMARY KEY(ID_TRX),                                             
        FOREIGN KEY(CBU_EMISOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE),     
        FOREIGN KEY(CBU_RECEPTOR) REFERENCES TRX.CLIENTE(CBU_CLIENTE));  
-COMMIT;                                                   
+COMMIT;                                                                 
+--INDICE CLIENTE:                                                       
+CREATE UNIQUE INDEX TRX_I ON TRX.TRANSACCION(ID_TRX)                    
+       CLUSTER;                                                         
+COMMIT;                                                                 
+                                        
 -- *********************************************************************
 -- TABLA DE BANCOS                                                     *
 -- *********************************************************************
