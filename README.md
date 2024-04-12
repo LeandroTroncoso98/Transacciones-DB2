@@ -25,8 +25,11 @@ Teniendo el formato: CBU emisor, CBU receptor, causa del error.<br />
 ![DERDB2](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/b3efb5be-0c15-4b6e-88d3-ea4ce691d5e8)
 
     Detalle del programa PTRXCLI:
-El programa recibe a través de SYSIN un CBU, el cual será evaluado para determinar si corresponde al formato correcto de un CBU. Una vez validado, buscará en la base de datos todas las transacciones en las que dicho CBU haya participado, ya sea como emisor o receptor.
+El programa recibe un CBU, el cual será evaluado para determinar si corresponde al formato correcto de un CBU. Una vez validado, buscará en la base de datos todas las transacciones en las que dicho CBU haya participado, ya sea como emisor o receptor.
 Después de haber leído todas las transacciones en las que el CBU haya participado, el programa imprimirá un reporte que contendrá las últimas 10 transacciones de su historial.
 
     Diagrama de flujo del programa PTRXCLI:
-![DFPTRXCLI](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/0191e7f3-e4f5-48ef-8f71-3510e8a2e508)
+![DFPTRXCLI](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/32fb70bf-dfd4-4cb5-9648-de982a9c2a53)
+
+    Resultado de la ejecucion del programa PTRXCLI:
+![image](https://github.com/LeandroTroncoso98/Transacciones-DB2/assets/105368488/9ce8e3f6-b9e5-433e-8438-002ecc6cc884)
